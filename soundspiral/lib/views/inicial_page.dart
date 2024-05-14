@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:soundspiral/pages/login_page.dart';
+import 'package:soundspiral/views/login_page.dart';
 
 class InicialPage extends StatefulWidget {
   const InicialPage({super.key});

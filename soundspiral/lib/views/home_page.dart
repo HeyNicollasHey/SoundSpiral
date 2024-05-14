@@ -1,9 +1,8 @@
-import 'dart:io';
-
+import 'package:soundspiral/viewmodels/account_view_model.dart';
+import 'package:soundspiral/views/login_page.dart';
 import 'package:flutter/material.dart';
-import 'package:soundspiral/pages/config_page.dart';
-import 'package:soundspiral/pages/login_page.dart';
-import 'package:soundspiral/pages/my_albuns_page.dart';
+import 'package:soundspiral/views/config_page.dart';
+import 'package:soundspiral/views/my_albuns_page.dart';
 import 'package:soundspiral/shared/tema.dart';
 
 class HomePage extends StatelessWidget {
@@ -46,6 +45,14 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
+        centerTitle: true,
+        leading: IconButton(
+          icon: const Icon(Icons.logout, color: Colors.white),
+          onPressed: () {
+            AccountViewModel.logout();
+            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const LoginPage()));
+          },
+        ),
         backgroundColor: Colors.black,
         automaticallyImplyLeading: false,
         actions: [

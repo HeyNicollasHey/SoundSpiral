@@ -1,6 +1,8 @@
+import 'package:soundspiral/viewmodels/account_view_model.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:soundspiral/pages/create_account_page.dart';
-import 'package:soundspiral/pages/home_page.dart';
+import 'package:soundspiral/views/create_account_page.dart';
+import 'package:soundspiral/views/home_page.dart';
 import 'package:soundspiral/shared/tema.dart';
 
 class LoginPage extends StatefulWidget {
@@ -99,8 +101,20 @@ class _LoginPageState extends State<LoginPage> {
               // botao
               ElevatedButton(
                 onPressed: () async {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => HomePage()));
+                  bool fazerLogin = await AccountViewModel.fazerLogin(_emailController.text, _senhaController.text);
+
+                  if (fazerLogin) {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => HomePage()));
+                  }
+                  else {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text('Erro ao realizar login: Dados não coincidem.'),
+                        backgroundColor: Colors.red,
+                      ),
+                    );
+                  }
                 },
                 child: Text(
                   "Entrar",

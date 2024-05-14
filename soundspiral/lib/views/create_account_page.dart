@@ -1,4 +1,6 @@
 import 'dart:ui';
+import 'package:soundspiral/viewmodels/account_view_model.dart';
+import 'package:soundspiral/views/login_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -12,6 +14,10 @@ class CreateAccountPage extends StatefulWidget {
 }
 
 class _CreateAccountPageState extends State<CreateAccountPage> {
+  TextEditingController _usernameController = TextEditingController();
+  TextEditingController _emailController = TextEditingController();
+  TextEditingController _passswordController = TextEditingController();
+
   bool ocultarSenha = true;
 
   IconData exibirIcon = Icons.visibility;
@@ -30,6 +36,12 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back, color: Colors.white),
+            onPressed: () {
+              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const LoginPage()));
+            },
+          ),
             centerTitle: true,
             backgroundColor: Colors.black,
             title: Text("Criar Conta", style: TextStyle(color: Colors.white))),
@@ -48,6 +60,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                 width: largura - 32,
                 height: 48,
                 child: TextField(
+                  controller: _usernameController,
                   decoration: InputDecoration(
                     prefixIcon: const Icon(Icons.abc),
                     label: const Text("Nome"),
@@ -65,6 +78,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                 width: largura - 32,
                 height: 48,
                 child: TextField(
+                  controller: _emailController,
                   decoration: InputDecoration(
                     prefixIcon: const Icon(Icons.alternate_email),
                     label: const Text("E-mail"),
@@ -78,28 +92,12 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
               const SizedBox(
                 height: 24,
               ),
-              SizedBox(
-                width: largura - 32,
-                height: 48,
-                child: TextField(
-                  decoration: InputDecoration(
-                    prefixIcon: const Icon(Icons.phone),
-                    label: const Text("Telefone"),
-                    hintText: "Digite seu telefone",
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                  ),
-                ),
-              ),
               //
-              const SizedBox(
-                height: 24,
-              ),
               SizedBox(
                 width: largura - 32,
                 height: 48,
                 child: TextField(
+                  controller: _passswordController,
                   obscureText: ocultarSenha,
                   decoration: InputDecoration(
                     prefixIcon: const Icon(Icons.password),
@@ -122,9 +120,25 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
               //
               // botao
               ElevatedButton(
-                onPressed: () async {},
+                onPressed: () async {
+                  bool criarConta = await AccountViewModel.criarConta(_usernameController.text, _emailController.text, _passswordController.text);
+
+                  if (criarConta) {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => LoginPage()));
+                  } else {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text('Erro ao criar conta: Dados fornecidos não válidos.'),
+                        backgroundColor: Colors.red,
+                      ),
+                    );
+                  }
+                },
                 child: Text(
-                  "Criar Conta e Entrar",
+                  "Criar Conta",
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 16,

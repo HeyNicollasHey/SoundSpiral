@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:soundspiral/pages/adele_album_page.dart';
-import 'package:soundspiral/pages/future_nostalgia_album.dart';
-import 'package:soundspiral/pages/igor_album_page.dart';
-import 'package:soundspiral/pages/login_page.dart';
+import 'package:soundspiral/views/adele_album_page.dart';
+import 'package:soundspiral/views/future_nostalgia_album.dart';
+import 'package:soundspiral/views/igor_album_page.dart';
 import 'package:soundspiral/shared/tema.dart';
 
 class MyAlbums extends StatefulWidget {

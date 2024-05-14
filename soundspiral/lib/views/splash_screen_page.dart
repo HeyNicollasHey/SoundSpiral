@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:soundspiral/pages/inicial_page.dart';
-import 'package:soundspiral/pages/login_page.dart';
+import 'package:soundspiral/views/inicial_page.dart';
 import 'package:soundspiral/shared/tema.dart';
 
 class SplashScreenPage extends StatefulWidget {
@@ -15,7 +14,7 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
   void initState() {
     super.initState();
 
-    Future.delayed(const Duration(seconds: 1), () {
+    Future.delayed(const Duration(seconds: 3), () {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
