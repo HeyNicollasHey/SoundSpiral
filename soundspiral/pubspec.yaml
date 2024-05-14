@@ -60,4 +60,13 @@ flutter:
 
   assets:
     - assets/logo.png
+    - assets/gaga.jpg
+    - assets/lana.png
+    - assets/tyler.jpg
+    - assets/adele.webp
+    - assets/dualipa.webp
+    - assets/dojacat.jpeg
+    - assets/21_adele_cover.jpg
+    - assets/Future_Nostalgia_cover.png
+    - assets/Igor_cover.jpg
 

@@ -1,17 +1,13 @@
-import 'dart:ui';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
 
-class CreateAccountPage extends StatefulWidget {
-  const CreateAccountPage({super.key});
+class ConfigPage extends StatefulWidget {
+  const ConfigPage({super.key});
 
   @override
-  State<CreateAccountPage> createState() => _CreateAccountPageState();
+  State<ConfigPage> createState() => _ConfigPageState();
 }
 
-class _CreateAccountPageState extends State<CreateAccountPage> {
+class _ConfigPageState extends State<ConfigPage> {
   bool ocultarSenha = true;
 
   IconData exibirIcon = Icons.visibility;
@@ -32,7 +28,8 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
         appBar: AppBar(
             centerTitle: true,
             backgroundColor: Colors.black,
-            title: Text("Criar Conta", style: TextStyle(color: Colors.white))),
+            title: Text("Configurações de usuário",
+                style: TextStyle(color: Colors.white))),
         backgroundColor: Colors.black,
         body: Center(
           child: Column(
@@ -96,6 +93,8 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
               const SizedBox(
                 height: 24,
               ),
+              //
+              // campo de texto para senha
               SizedBox(
                 width: largura - 32,
                 height: 48,
@@ -124,7 +123,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
               ElevatedButton(
                 onPressed: () async {},
                 child: Text(
-                  "Criar Conta e Entrar",
+                  "Salvar Alterações",
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 16,
