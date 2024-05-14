@@ -5,7 +5,7 @@ Doscente: Erlon
 
 A ideia principal do aplicativo seria de um reprodutor de músicas, que tambem mostrasse a letra, a exemplo o Spotify, infeizmente o desgin nao pode ser seguido fielmente.
 
-Figma: https://www.figma.com/design/gsS23EKzi2cX1T0rtYuvFs/Musica-App?node-id=0-1&t=MPMMc404fzvHyPak-0
+Figma: https://www.figma.com/design/qSo5q8duebvNN6qrFXePf9/Untitled?node-id=1%3A229&t=tuA3uk4RpSE1BHQH-1
 
 De forma simples, a aplicação conta uma SplashScreen, Uma pagina Inicial para intruduzir o aplicativo, após isso a tela de login com opções para "Entrar" ou "Criar conta".
 Na home do aplicativo, tem uma lista (utilizando o ListViewBuilder) para exibição dos Artistas selecionado, uma barra de pesquisa que ainda nao possui funcionalidade e um PopUp Menu, para levar 
